@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <title>AskVinnikov</title>
+    <link href="../static/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/my.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column h-100">
+    <header>
+        <nav style="background-color: rgb(254, 255, 208)">
+            <div class="row">
+                <div class="col-2 navigation-div brand-name" style="min-width: 220px">
+                    <a class="navbar-brand brand-name"
+                        style="color: rgb(10, 0, 27); font-size: 40px; padding-left: 30px" href="#">AskVinnikov</a>
+                </div>
+                <div class="col-5 navigation-div" style="min-width: 400px">
+                    <form class="d-flex search-form">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                </div>
+                <div class="col-5 navigation-div" style="min-width: 400px">
+                    <div class="row avatar">
+                        <div class="col-2" style="padding-left: 50px">
+                            <a href="#">Log in</a>
+                        </div>
+                        <div class="col-2">
+                            <a href="#">Register</a>
+                        </div>
+                        <div class="col-8"></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-8 left-column">
+
+                    <div class="questions-header">
+                        <div style="font-size: 30px; display:flex; align-items:center">
+                            Log In
+                        </div>
+                    </div>
+                    <form class="question-form">
+                        <div class="row">
+                            <div class="col-2">
+                                <label for="validationServer01" class="form-label">Login</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" class="form-control is-valid" id="validationServer01"
+                                    value="comradyo" required placeholder="Enter your login...">
+                                <p class="valid-feedback">
+                                    Looks good!
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">
+                                <label for="validationServer01" class="form-label">Password</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="password" class="form-control is-invalid" id="validationServer01"
+                                    value="QWERTY1234" required placeholder="Enter your password...">
+                                <p class="invalid-feedback">
+                                    Sorry, wrong password!
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col-10">
+                                <button class="btn btn-success" type="submit">Log in</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col-10" style="margin-top: 10px">
+                                <a href="#">Create new account</a>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="col-4 right-column">
+                    <div class="right-column-headers">
+                        Popular Tags
+                    </div>
+                    <div class="tags">
+                        <p>
+                            <a href="#" style="color:rgb(255, 51, 51)">Perl</a>
+                            <a href="#" style="color:rgb(51, 207, 255); font-size:30px; font-weight:bold">Python</a>
+                        </p>
+                        <p>
+                            <a href="#" style="color:rgb(0, 211, 46)">Technopark</a>
+                            <a href="#" style="color:rgb(169, 0, 211); font-size:35px; font-weight:bold">MySQL</a>
+                            <a href="#" style="color:rgb(1, 99, 112)">Django</a>
+                        </p>
+                        <p>
+                            <a href="#" style="color:rgb(0, 29, 192); font-size: 25px">Mail.ru</a>
+                            <a href="#" style="color:rgb(247, 0, 255)">Voloshin</a>
+                            <a href="#" style="color:rgb(255, 166, 0)">Firefox</a>
+                        </p>
+                    </div>
+                    <div class="right-column-headers">
+                        Best Members
+                    </div>
+                    <div class="members">
+                        <div><a href="#">Mr.Freeman</a></div>
+                        <div><a href="#">Dr.House</a></div>
+                        <div><a href="#">Bender</a></div>
+                        <div><a href="#">Queen Victoria</a></div>
+                        <div><a href="#">V. Pupkin</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">AskVinnikov 2021</span>
+        </div>
+    </footer>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <title>AskVinnikov</title>
+    <link href="../static/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/my.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column h-100">
+    <header>
+        <nav style="background-color:rgb(10, 0, 27)">
+            <div class="row">
+                <div class="col-2 navigation-div brand-name" style="min-width: 220px">
+                    <a class="navbar-brand brand-name"
+                        style="color: rgb(254, 255, 208); font-size: 40px; padding-left: 30px" href="#">AskVinnikov</a>
+                </div>
+                <div class="col-6 navigation-div" style="min-width: 400px">
+                    <form class="d-flex search-form">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">ASK!</button>
+                    </form>
+                </div>
+                <div class="col-4 navigation-div" style="min-width: 400px">
+                    <div class="row avatar">
+                        <div class="col-2">
+                            <img class="avatar-image" src="../img/pic1.jpg">
+                        </div>
+                        <div class="col-10 navigation-div">
+                            <div class="col-6 username" style="color:aqua">
+                                <div>Techno Enjoyer</div>
+                            </div>
+                            <div class="col-6 row">
+                                <div class="col-4">
+                                    <a href="#">Settings</a>
+                                </div>
+                                <div class="col-4">
+                                    <a href="#">Logout</a>
+                                </div>
+                                <div class="col-6"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-8 left-column">
+                    <div class="row questions-header">
+                        <div class="col-4" style="font-size: 30px; display:flex; align-items:center">
+                            Tag: MySQL
+                        </div>
+                        <div class="col-6"></div>
+                    </div>
+                    <div class="row question">
+                        <div class="col-2">
+                            <div class="question-picture">
+                                <img src="../img/pic2.jpg" style="display: block; margin: auto">
+                            </div>
+                            <div>
+                                <div style="text-align: center">
+                                    500
+                                </div>
+                                <div class="question-buttons">
+                                    <button type="button" class="btn btn-success btn-sm">Like</button>
+                                    <button type="button" class="btn btn-danger btn-sm">Dislike</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-10">
+                            <a href="#">
+                                <h2>Lorem ipsum dolor sit amet</h2>
+                            </a>
+                            <div>
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                                ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in voluptate
+                                velit esse cillum dolore eu fugiat nulla pariatur.
+                            </div>
+                            <div class="question-text-bottom">
+                                <a href="#">answer(3)</a>
+                                <span>Tags: </span>
+                                <a href="#">MySQL </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row question">
+                        <div class="col-2">
+                            <div class="question-picture">
+                                <img src="../img/pic3.jpg" style="display: block; margin: auto">
+                            </div>
+                            <div>
+                                <div style="text-align: center">
+                                    20
+                                </div>
+                                <div class="question-buttons">
+                                    <button type="button" class="btn btn-success btn-sm">Like</button>
+                                    <button type="button" class="btn btn-danger btn-sm">Dislike</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-10">
+                            <a href="#">
+                                <h2>Programming</h2>
+                            </a>
+                            <div>
+                                Computer programming is the process of designing and building an executable computer
+                                program to accomplish a specific computing result or to perform a specific task.
+                                Programming involves tasks such as: analysis, generating algorithms, profiling
+                                algorithms' accuracy and resource consumption, and the implementation of algorithms in a
+                                chosen programming language (commonly referred to as coding).
+                            </div>
+                            <div class="question-text-bottom">
+                                <a href="#">answer(3)</a>
+                                <span>Tags: </span>
+                                <a href="#">MySQL </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="paginator" style="margin-top: 50px">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-4 right-column">
+                    <div class="right-column-headers">
+                        Popular Tags
+                    </div>
+                    <div class="tags">
+                        <p>
+                            <a href="#" style="color:rgb(255, 51, 51)">Perl</a>
+                            <a href="#" style="color:rgb(51, 207, 255); font-size:30px; font-weight:bold">Python</a>
+                        </p>
+                        <p>
+                            <a href="#" style="color:rgb(0, 211, 46)">Technopark</a>
+                            <a href="#" style="color:rgb(169, 0, 211); font-size:35px; font-weight:bold">MySQL</a>
+                            <a href="#" style="color:rgb(1, 99, 112)">Django</a>
+                        </p>
+                        <p>
+                            <a href="#" style="color:rgb(0, 29, 192); font-size: 25px">Mail.ru</a>
+                            <a href="#" style="color:rgb(247, 0, 255)">Voloshin</a>
+                            <a href="#" style="color:rgb(255, 166, 0)">Firefox</a>
+                        </p>
+                    </div>
+                    <div class="right-column-headers">
+                        Best Members
+                    </div>
+                    <div class="members">
+                        <div><a href="#">Mr.Freeman</a></div>
+                        <div><a href="#">Dr.House</a></div>
+                        <div><a href="#">Bender</a></div>
+                        <div><a href="#">Queen Victoria</a></div>
+                        <div><a href="#">V. Pupkin</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">AskVinnikov 2021</span>
+        </div>
+    </footer>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
