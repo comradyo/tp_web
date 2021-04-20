@@ -1,0 +1,19 @@
+{% load static %}
+
+<form class="question-form" style="margin-top: 50px; border-top: 3px rgb(194, 194, 194) solid; padding-top: 20px;">
+    <div class="row">
+        <div class="col-11">
+            <textarea class="form-control is-invalid" id="validationTextarea"
+                      placeholder="Enter your answer here..." required
+                      style="min-height: 300px;">
+            </textarea>
+            <div class="invalid-feedback">
+                Please enter a message in the textarea.
+            </div>
+        </div>
+        <p class="col-1 max-length">
+            0/1000
+        </p>
+    </div>
+    <button class="btn btn-success" type="submit">Answer</button>
+</form>

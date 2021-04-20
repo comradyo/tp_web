@@ -1,0 +1,65 @@
+{% load static %}
+
+<form class="question-form">
+    <div class="row">
+        <div class="col-2">
+            <label for="validationServer01" class="form-label">Login</label>
+        </div>
+        <div class="col-5">
+            <input type="text" class="form-control is-valid" id="validationServer01"
+                   value="comradyo" required placeholder="Enter new login...">
+            <p class="valid-feedback">
+                Looks good!
+            </p>
+        </div>
+        <p class="col-1 max-length">
+            0/30
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <label for="validationServer01" class="form-label">Email</label>
+        </div>
+        <div class="col-5">
+            <input type="email" class="form-control is-valid" id="validationServer01"
+                   value="yoyoyo@mail.ru" required placeholder="Enter new email...">
+            <p class="valid-feedback">
+                Looks good!
+            </p>
+        </div>
+        <p class="col-1 max-length">
+            0/40
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <label for="validationServer01" class="form-label">NickName</label>
+        </div>
+        <div class="col-5">
+            <input type="text" class="form-control is-valid" id="validationServer01"
+                   value="Techno Enjoyer" required placeholder="Enter new nickname...">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <p class="col-1 max-length">
+            0/30
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <label for="validationServer01" class="form-label">Upload avatar</label>
+        </div>
+        <div class="col-5">
+            <img src="../img/pic1.jpg" style="width:120px; height:120px;">
+            <input style="padding-top:10px;" type="file" name="photo" multiple
+                   accept="image/*,image/jpeg">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10">
+            <button class="btn btn-success" type="submit">Save</button>
+        </div>
+    </div>
+</form>

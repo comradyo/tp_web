@@ -1,0 +1,95 @@
+{% load static %}
+
+<form class="question-form">
+    <div class="row">
+        <div class="col-2">
+            <label for="validationServer01" class="form-label">Login</label>
+        </div>
+        <div class="col-5">
+            <input type="text" class="form-control is-valid" id="validationServer01"
+                   value="comradyo" required placeholder="Enter your login...">
+            <p class="valid-feedback">
+                Looks good!
+            </p>
+        </div>
+        <p class="col-1 max-length">
+            0/30
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <label for="validationServer01" class="form-label">Email</label>
+        </div>
+        <div class="col-5">
+            <input type="email" class="form-control is-invalid" id="validationServer01"
+                   value="comradyo" required placeholder="Enter your email...">
+            <p class="invalid-feedback">
+                Sorry, this email address already registered!
+            </p>
+        </div>
+        <p class="col-1 max-length">
+            0/30
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <label for="validationServer01" class="form-label">Nickname</label>
+        </div>
+        <div class="col-5">
+            <input type="text" class="form-control is-valid" id="validationServer01"
+                   value="comradyo" required placeholder="Enter your nickname...">
+            <p class="valid-feedback">
+                Looks good!
+            </p>
+        </div>
+        <p class="col-1 max-length">
+            0/30
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <label for="validationServer01" class="form-label">Password</label>
+        </div>
+        <div class="col-5">
+            <input type="password" class="form-control is-valid" id="validationServer01"
+                   value="QWERTY1234" required placeholder="Enter your password...">
+            <p class="valid-feedback">
+                Looks good!
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            <label for="validationServer01" class="form-label">Repeat password</label>
+        </div>
+        <div class="col-5">
+            <input type="password" class="form-control is-invalid" id="validationServer01"
+                   value="QWERTY4545" required placeholder="Enter your password again...">
+            <p class="invalid-feedback">
+                Sorry! Passwords don't match!
+            </p>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 10px;">
+        <div class="col-2">
+            <label for="validationServer01" class="form-label">Upload avatar</label>
+        </div>
+        <div class="col-5">
+            <input type="file" class="form-control is-valid" id="validationServer01" name="photo"
+                   multiple accept="image/*,image/jpeg">
+            <p class="valid-feedback">
+                OK!
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10">
+            <button class="btn btn-success" type="submit">Register!</button>
+        </div>
+    </div>
+
+</form>
