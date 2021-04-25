@@ -12,6 +12,5 @@ urlpatterns = [
     path('settings/', views.settings, name='settings'),
     path('signup/', views.signup, name='signup'),
     path('tag/<str:tag_name>', views.tag, name='tag'),
-    # path('articles/', views.articles),
     path('', views.index, name='index')
 ]

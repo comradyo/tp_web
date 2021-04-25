@@ -28,11 +28,10 @@
         </div>
         <div class="question-text-bottom">
             <!-- Ссылка на сам вопрос -->
-            <!-- в дальнейшем нужно сделать подсчёт ответов -->
-            <a href={% url "question" pk=question.id %}>answer(3)</a>
+            <!-- Подсчёт не работает почему-то -->
+            <a href={% url "question" pk=question.id %}>answer({{ question.tags.count }})</a>
             <span>Tags: </span>
             <!-- ВЫВОД ВСЕХ ТЕГОВ -->
-            <!-- Нужно сделать ссылки на теги -->
             {% for tag in question.tags.all %}
                 <a href={% url 'tag' tag %}>{{ tag.name }} </a>
             {% endfor %}

@@ -1,4 +1,4 @@
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 from random import choice
 from itertools import islice
 from ...models import *
@@ -18,6 +18,7 @@ class Command(BaseCommand):
         parser.add_argument('-a', '--answers', type=int)
         parser.add_argument('-vfa', '--votes_for_answers', type=int)
         parser.add_argument('-vfq', '--votes_for_questions', type=int)
+        parser.add_argument('-db', '--database', type=int)
 
     # Типа функция, связывающая команды с аргументами (или нет...)
     def handle(self, *args, **options):
@@ -32,7 +33,9 @@ class Command(BaseCommand):
         if options['votes_for_answers']:
             self.fill_votes_for_answers(options['votes_for_answers'])
         if options['votes_for_questions']:
-            self.fill_votes_for_questions(options['votes_for_answers'])
+            self.fill_votes_for_questions(options['votes_for_questions'])
+        if options['database']:
+            self.fill_database(options['database'])
 
     def fill_tags(self, n):
         for i in range(n):
@@ -46,7 +49,7 @@ class Command(BaseCommand):
 
         for login in logins:
             user = User.objects.create(username=login, password=faker.password(), email=faker.email())
-            Profile.objects.create(user=user)
+            profile = Profile.objects.create(user=user)
 
     def fill_questions(self, n):
         users = list(Profile.objects.values_list('id', flat=True))
@@ -55,67 +58,83 @@ class Command(BaseCommand):
         for i in range(n):
             question = Question.objects.create(author_id=choice(users), title=faker.sentence(3) + '?',
                                                text=faker.text(), date=faker.date_between('-50d', 'today'))
-
             question.tags.add(choice(tags))
+            if (i % 10000 == 0):
+                print(i)
 
     def fill_answers(self, n):
         users = list(Profile.objects.values_list('id', flat=True))
         questions = list(Question.objects.values_list('id', flat=True))
-        # answers = []
+        answers = []
 
         for i in range(n):
-            Answer.objects.create(question_id=choice(questions), author_id=choice(users),
-                                  text=faker.sentence())
-            # answers.append(answer)
+            answer = Answer(question_id=choice(questions), author_id=choice(users),
+                            text=faker.sentence())
+            answers.append(answer)
+            if (i % 10000 == 0):
+                print(i)
 
-        # Поставить 100 000
-        # batch_size = 1
-        # while True:
-        # batch = list(islice(answers, batch_size))
-        # if not batch:
-        # break
-        # Answer.objects.bulk_create(batch, batch_size)
+        batch_size = 100000
+        for i in range(int(n / batch_size) + 1):
+            batch = list(islice(answers, batch_size))
+            if not batch:
+                break
+            if (i % 10000 == 0):
+                print(i)
+            Answer.objects.bulk_create(batch, batch_size)
 
     def fill_votes_for_questions(self, n):
         users = list(Profile.objects.values_list('id', flat=True))
         questions = list(Question.objects.values_list('id', flat=True))
-        # votes = []
+        votes = []
 
         for i in range(n):
-            _vote = VoteForQuestion.objects.create(question_id=choice(questions),
-                                                   author_id=choice(users), vote=faker.random.randint(-1, 1))
-            _vote.answer.change_rating(_vote.vote)
-            # Не сработало (
-            # temp_vote.question.change_rating(temp_vote.vote)
+            temp_vote = VoteForQuestion(question_id=choice(questions),
+                                        author_id=choice(users), vote=faker.random.randint(-1, 1))
 
-            # votes.append(temp_vote)
+            temp_vote.question.change_rating(temp_vote.vote)
+            temp_vote.question.save()
+            votes.append(temp_vote)
+            if (i % 10000 == 0):
+                print(i)
 
-        # Поставить 100 000
-        # batch_size = 1
-        # while True:
-        #   batch = list(islice(votes, batch_size))
-        #  if not batch:
-        #     break
-        # VoteForQuestion.objects.bulk_create(batch, batch_size)
+        batch_size = 100000
+        for i in range(int(n / batch_size)):
+            if (i % 10000 == 0):
+                print(i)
+            batch = list(islice(votes, batch_size))
+            if not batch:
+                break
+            VoteForQuestion.objects.bulk_create(batch, batch_size)
 
-    def fill_votes_for_answers(self, n):
+    def fill_votes_for_answers(self, n: int):
         users = list(Profile.objects.values_list('id', flat=True))
         answers = list(Answer.objects.values_list('id', flat=True))
-        # votes = []
+        votes = []
 
         for i in range(n):
-            _vote = VoteForAnswer.objects.create(author_id=choice(users), answer_id=choice(answers),
-                                                 vote=faker.random.randint(-1, 1))
+            temp_vote = VoteForAnswer(author_id=choice(users), answer_id=choice(answers),
+                                      vote=faker.random.randint(-1, 1))
 
-            # Почему-то не сработало (
-            # _vote.answer.change_rating(_vote.vote)
+            temp_vote.answer.change_rating(temp_vote.vote)
+            temp_vote.answer.save()
+            votes.append(temp_vote)
+            if (i % 10000 == 0):
+                print(i)
 
-            # votes.append(_vote)
+        batch_size = 100000
+        for i in range(int(n / batch_size) + 1):
+            if (i % 10000 == 0):
+                print(i)
+            batch = list(islice(votes, batch_size))
+            if not batch:
+                break
+            VoteForAnswer.objects.bulk_create(batch, batch_size)
 
-        # Поставить 100 000
-    # batch_size = 1
-    # while True:
-    #  batch = list(islice(votes, batch_size))
-    #   if not batch:
-    #     break
-    #    Answer.objects.bulk_create(batch, batch_size)
+    def fill_database(self, n: int):
+        self.fill_users(n)
+        self.fill_tags(n)
+        self.fill_questions(n * 10)
+        self.fill_answers(n * 100)
+        self.fill_votes_for_questions(n * 100)
+        self.fill_votes_for_answers(n * 100)
