@@ -1,0 +1,61 @@
+{% load static %}
+
+<form class="question-form">
+
+    <div class="row">
+        <div class="col-1">
+            <label for="validationServer01" class="form-label">Title</label>
+        </div>
+        <div class="col-10">
+            <input type="text" class="form-control is-valid" id="validationServer01"
+                   value="Should I go to party?" required placeholder="Enter the title of the question...">
+            <p class="valid-feedback">
+                Looks good!
+            </p>
+        </div>
+        <p class="col-1 max-length">
+            0/100
+        </p>
+    </div>
+
+    <div class="row">
+        <div class="col-1">
+            <label for="validationTextarea" class="form-label">Text</label>
+        </div>
+        <div class="col-10">
+                                <textarea class="form-control is-invalid" id="validationTextarea"
+                                          placeholder="Describe your question..." required
+                                          style="min-height: 300px;"></textarea>
+            <div class="invalid-feedback">
+                Please enter a message in the textarea.
+            </div>
+        </div>
+        <p class="col-1 max-length">
+            0/1000
+        </p>
+    </div>
+
+    <div class="row">
+        <div class="col-1">
+            <label for="validationServer01" class="form-label">Tags</label>
+        </div>
+        <div class="col-10">
+            <input type="text" class="form-control is-valid" id="validationServer01"
+                   value="Linux, Ubuntu" required placeholder="Enter some tags...">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <p class="col-1 max-length">
+            0/100
+        </p>
+    </div>
+
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-11">
+            <button class="btn btn-success" type="submit">ASK!</button>
+        </div>
+    </div>
+
+</form>

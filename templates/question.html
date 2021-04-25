@@ -1,0 +1,15 @@
+{% extends "include/base.html" %}
+{% load static %}
+
+{% block content %}
+
+    {% include "include/single_question/question.html" %}
+
+    {% for answer in content %}
+        {% include "include/single_question/answer.html" %}
+    {% endfor %}
+
+    {% include "include/basic_elements/listing.html" %}
+
+    {% include "include/single_question/answer_form.html" %}
+{% endblock content %}

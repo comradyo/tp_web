@@ -1,0 +1,50 @@
+{% load static %}
+
+<div class="row question">
+    <div class="col-2">
+        <div class="question-picture">
+            <!--Аватарка автора ответа-->
+            <img src="{{ answer.author.avatar }}" style="display: block; margin: auto">
+        </div>
+        <div>
+            <div style="text-align: center">
+                <!--Рейтинг ответа-->
+                {{ answer.rating }}
+            </div>
+            <div class="question-buttons">
+                <button type="button" class="btn btn-success btn-sm">Like</button>
+                <button type="button" class="btn btn-danger btn-sm">Dislike</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-10">
+        <div>
+            <!-- текст ответа -->
+            {{ answer.text }}
+        </div>
+        <div class="question-text-bottom">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Correct!
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+            Well... I don't know... you should...
+            Well... I don't know... you should...
+            Well... I don't know... you should...
+            Well... I don't know... you should...
+            Well... I don't know... you should...
+            Well... I don't know... you should...
+            Well... I don't know... you should...
+            Well... I don't know... you should...
+            Well... I don't know... you should...
+            Well... I don't know... you should...
+            Well... I don't know... you should...
+            Well... I don't know... you should...
+            Well... I don't know... you should...
+            -->

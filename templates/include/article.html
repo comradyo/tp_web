@@ -1,0 +1,13 @@
+{% load static %}
+
+<div class="row question">
+    <div class="col-9">
+        <div>
+            <h1>{{ article.author.name }}</h1>
+            <h3>{{ article.title }}</h3>
+        </div>
+        <div>
+            {{ article.text }}
+        </div>
+    </div>
+</div>

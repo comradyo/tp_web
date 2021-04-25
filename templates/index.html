@@ -1,0 +1,14 @@
+{% extends "include/base.html" %}
+{% load static %}
+
+{% block content %}
+    {% include "include/index/header.html" %}
+
+    {% for question in content %}
+        {% include "include/question.html" %}
+    {% endfor %}
+
+    {% include "include/basic_elements/listing.html" %}
+
+{% endblock content %}
+

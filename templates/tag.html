@@ -1,0 +1,12 @@
+{% extends "include/base.html" %}
+{% load static %}
+
+{% block content %}
+
+    {% include "include/tag_questions/header.html" %}
+
+    {% for question in content %}
+        {% include "include/question.html" %}
+    {% endfor %}
+
+{% endblock content %}

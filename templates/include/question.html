@@ -1,0 +1,41 @@
+{% load static %}
+
+<div class="row question">
+    <div class="col-2">
+        <div class="question-picture">
+            <!-- Аватарка автора вопроса -->
+            <img src="{{ question.author.avatar }}" style="display: block; margin: auto">
+        </div>
+        <div>
+            <div style="text-align: center">
+                <!-- Рейтинг вопроса -->
+                {{ question.rating }}
+            </div>
+            <div class="question-buttons">
+                <button type="button" class="btn btn-success btn-sm">Like</button>
+                <button type="button" class="btn btn-danger btn-sm">Dislike</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-10">
+        <!-- Ссылка на сам вопрос -->
+        <a href="{% url "question" pk=question.id %}">
+            <h2>{{ question.title }}</h2>
+        </a>
+        <div>
+            <!-- Текст вопроса -->
+            {{ question.text }}
+        </div>
+        <div class="question-text-bottom">
+            <!-- Ссылка на сам вопрос -->
+            <!-- в дальнейшем нужно сделать подсчёт ответов -->
+            <a href={% url "question" pk=question.id %}>answer(3)</a>
+            <span>Tags: </span>
+            <!-- ВЫВОД ВСЕХ ТЕГОВ -->
+            <!-- Нужно сделать ссылки на теги -->
+            {% for tag in question.tags.all %}
+                <a href={% url 'tag' tag %}>{{ tag.name }} </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
