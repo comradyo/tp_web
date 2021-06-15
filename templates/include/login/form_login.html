@@ -1,12 +1,38 @@
 {% load static %}
+{% load bootstrap4 %}
 
-<form class="question-form">
+<!-- параметр novalidate позволяет вводить некорректные данные-->
+<!--
+<form novalidate class="form mt-5" action="" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+
+    {% buttons %}
+        <button type="submit" class="btn btn-primary">
+            Login
+        </button>
+    {% endbuttons %}
+</form>
+-->
+
+
+<form class="question-form" action="" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+        <button class="btn btn-success" type="submit">
+            Log in
+        </button>
+    {% endbuttons %}
+</form>
+
+<!--
     <div class="row">
         <div class="col-2">
             <label for="validationServer01" class="form-label">Login</label>
         </div>
         <div class="col-5">
-            <input type="text" class="form-control is-valid" id="validationServer01"
+            <input type="text" name="login" class="form-control is-valid" id="validationServer01"
                    value="comradyo" required placeholder="Enter your login...">
             <p class="valid-feedback">
                 Looks good!
@@ -18,8 +44,8 @@
             <label for="validationServer01" class="form-label">Password</label>
         </div>
         <div class="col-5">
-            <input type="password" class="form-control is-invalid" id="validationServer01"
-                   value="QWERTY1234" required placeholder="Enter your password...">
+            <input type="password" name="password" class="form-control is-invalid" id="validationServer01" required
+                   placeholder="Enter your password...">
             <p class="invalid-feedback">
                 Sorry, wrong password!
             </p>
@@ -28,13 +54,18 @@
     <div class="row">
         <div class="col-2"></div>
         <div class="col-10">
-            <button class="btn btn-success" type="submit">Log in</button>
+            {% buttons %}
+                <button class="btn btn-success" type="submit">
+                    Log in
+                </button>
+            {% endbuttons %}
         </div>
     </div>
     <div class="row">
         <div class="col-2"></div>
         <div class="col-10" style="margin-top: 10px">
-            <a href="#">Create new account</a>
+            <a href="{{ url }}">Create new account</a>
         </div>
     </div>
 </form>
+-->

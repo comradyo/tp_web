@@ -136,5 +136,5 @@ class Command(BaseCommand):
         self.fill_tags(n)
         self.fill_questions(n * 10)
         self.fill_answers(n * 100)
-        self.fill_votes_for_questions(n * 100)
-        self.fill_votes_for_answers(n * 100)
+        self.fill_votes_for_questions(n * 200)
+        self.fill_votes_for_answers(n * 200)

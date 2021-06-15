@@ -29,7 +29,7 @@
         <div class="question-text-bottom">
             <!-- Ссылка на сам вопрос -->
             <!-- Подсчёт не работает почему-то -->
-            <a href={% url "question" pk=question.id %}>answer({{ question.tags.count }})</a>
+            <a href={% url "question" pk=question.id %}>answer({{ question.answers.count }})</a>
             <span>Tags: </span>
             <!-- ВЫВОД ВСЕХ ТЕГОВ -->
             {% for tag in question.tags.all %}

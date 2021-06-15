@@ -1,10 +1,14 @@
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
+from django.contrib import auth
 from datetime import date
 
 # from app.models import Article
 from app.models import Profile, Question, Tag, Answer
 from app.models import VoteForAnswer, VoteForQuestion
+
+# Импортируем формы
+from app.forms import LoginForm
 
 
 def listing(content_list, request, num_per_page):
@@ -26,7 +30,16 @@ def ask(request):
 
 
 def login(request):
-    return render(request, 'login.html', {})
+    if request.method == 'GET':
+        form = LoginForm()
+    else:
+        form = LoginForm(data=request.POST)
+        if form.is_valid():
+            user = auth.authenticate(request, **form.cleaned_data)
+            if user is not None:
+                auth.login(request, user)
+                return redirect(reverse('hot'))
+    return render(request, 'login.html', {'form': form})
 
 
 def settings(request):
