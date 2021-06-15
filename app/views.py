@@ -41,6 +41,9 @@ def login(request):
                 return redirect(reverse('hot'))
     return render(request, 'login.html', {'form': form})
 
+def logout(request):
+    auth.logout(request)
+    return redirect(reverse('hot'))
 
 def settings(request):
     return render(request, 'settings.html', {})
