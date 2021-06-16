@@ -1,7 +1,21 @@
 {% extends "include/base.html" %}
+{% load bootstrap4 %}
 {% load static %}
 
 {% block content %}
     {% include "include/ask_question/header.html" %}
+    <!--
     {% include "include/ask_question/question_form.html" %}
+    -->
+
+    <form class="form mt-5" method="POST" novalidate>
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button class="btn btn-outline-success lowButton" type="submit">
+                Ask!
+            </button>
+        {% endbuttons %}
+    </form>
+
 {% endblock content %}

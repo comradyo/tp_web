@@ -1,5 +1,6 @@
 {% extends "include/base.html" %}
 {% load static %}
+{% load bootstrap4 %}
 
 {% block content %}
 
@@ -11,5 +12,18 @@
 
     {% include "include/basic_elements/listing.html" %}
 
-    {% include "include/single_question/answer_form.html" %}
+    <!--{% include "include/single_question/answer_form.html" %}-->
+
+     {% if request.user.is_authenticated %}
+    <div class="row">
+        <form class="form mt-5" method="POST" novalidate>
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+                <button class="btn btn-outline-success lowButton" type="submit">Answer</button>
+            {% endbuttons %}
+        </form>
+    </div>
+    {% endif %}
+
 {% endblock content %}

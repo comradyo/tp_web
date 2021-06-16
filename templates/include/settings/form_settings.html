@@ -1,5 +1,17 @@
 {% load static %}
+{% load bootstrap4 %}
 
+    <form class="form mt-5" method="POST" novalidate>
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button class="btn btn-outline-success" type="submit">
+                Save
+            </button>
+        {% endbuttons %}
+    </form>
+
+<!--
 <form class="question-form">
     <div class="row">
         <div class="col-2">
@@ -63,3 +75,4 @@
         </div>
     </div>
 </form>
+-->

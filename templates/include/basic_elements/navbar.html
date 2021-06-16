@@ -10,12 +10,16 @@
                 </a>
             </div>
             <div class="col-6 navigation-div" style="min-width: 400px">
-                <form class="d-flex search-form">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">
-                        ASK!
-                    </button>
-                </form>
+                {% if request.user.is_authenticated %}
+                    <form class="d-flex search-form">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">
+                            <a href="{% url 'ask' %}">
+                                ASK!
+                            </a>
+                        </button>
+                    </form>
+                {% endif %}
             </div>
 
             <div class="col-4 navigation-div" style="min-width: 400px">
@@ -54,6 +58,9 @@
                                 {% else %}
                                     <a href="{% url "login" %}">
                                         Log in
+                                    </a>
+                                    <a href="{% url "signup" %}">
+                                        Registration
                                     </a>
                                 {% endif %}
 
